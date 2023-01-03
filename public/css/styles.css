@@ -1,0 +1,9 @@
+.complaint_form{
+    background-color: white;
+    border-radius: .35rem;
+    padding: 30px;
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 300px !important;
+
+}

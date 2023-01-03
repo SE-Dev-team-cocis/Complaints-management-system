@@ -4,12 +4,225 @@
   box-sizing: border-box;
 }
 
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
 body{
   background: #ddd;
+  z-index: -1;
 }
 .muk_logo{
-  width: 60px;
+  width:60px;
   height: 60px;
-
+  /* mix-blend-mode:lighten; */
 
 }
+/* header .muk_logo{
+  width:100px;
+  height: 100px;
+} */
+
+
+.student_image{
+  width: 100px;
+  height: 100px;
+  
+}
+
+
+.content{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-auto-rows: minmax(500px, auto);
+}
+
+
+.menu{
+  border-top: 1px solid rgb(138, 138, 138);
+}
+.menu a{
+  /* color: black; */
+  display: inline-block;
+  padding: 5px 20px;
+  width: 100%;
+}
+
+/* .menu a:hover{
+  color: white;
+  background-color: grey;
+} */
+
+
+.row span{
+  color: red;
+  font-size: 12px;
+  margin-top: 5px
+}
+
+
+.login, .signup{
+  background-color: rgba(0,0,0,0.5);
+  background-image: url("/public/images/mukbuilding.jpg");
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.login_form{
+  /* background-color: rgb(214, 212, 212); */
+  /* background-color: rgba(0,0,0,0.8); */
+
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: saturate(180%) blur(10px);
+
+  margin: 10px auto !important;
+  width: 450px;
+  height: auto;
+  padding: 40px;
+}
+
+.login_form label{
+  margin-left: 0px;
+}
+
+.signup_form{
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: saturate(180%) blur(10px);
+  /* width: 500px !important; */
+  color: #ddd;
+  width: 500px;
+  height: auto;
+  padding: 40px;
+  margin: 10px auto !important;
+}
+
+/* Student menu dashboard */
+.student_active{
+  border-left:3px solid green;
+   background:black;
+  color:white;
+}
+
+
+
+/* Complaint form */
+
+.complaint_form{
+  background-color: white;
+  border-radius: .35rem;
+  padding: 30px;
+  border: 1px solid black;
+  margin: 40px auto;
+  width: 550px !important;
+  /* height: 550px; */
+
+}
+
+.complaint_form label{
+  margin-top: 15px;
+  margin-bottom: 0px;
+  /* font-weight: bold; */
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+.complaint_form textarea{
+  height: 30px;
+}
+
+
+.form-step{
+  display: none;
+  transform-origin: top;
+  animation: animate 0.5s;
+}
+
+@keyframes animate {
+  from{
+    transform: scale(1,0);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1,1);
+    opacity: 1;
+  }
+}
+
+.form-step.active{
+  display: block;
+}
+
+/* Progress bar */
+.progressbar{
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: darkgreen; */
+  /* padding: 10px; */
+  margin: 2rem 0 4rem 0;
+  border-radius: 10px;
+  counter-reset: step;
+}
+
+.progressbar::before, .progress{
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 5px;
+  /* background-color: rgb(13, 79, 13); */
+  background-color: #ddd;
+
+}
+
+.progress{
+  background-color: darkgreen;
+  width: 0%;
+  transition: 0.3s ease-in-out;
+}
+
+.progress-step{
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+}
+
+.progress-step::before{
+  counter-increment: step;
+  content: counter(step);
+}
+
+.progress-step::after{
+  content: attr(data-title);
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  font-size: 0.80rem;
+  color: darkgreen;
+}
+
+.progress-step.active{
+  background-color: darkgreen;
+  color: white;
+}
+
+
+/* .login_header, .signup_header{
+  background-color: rgba(0,0,0,0.6);
+} */
+
+/* End of complaint form */

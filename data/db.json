@@ -1,0 +1,89 @@
+{
+    "complaints": [
+        {
+            "id": 1,
+            "name": "Loor Jacobson",
+            "studentNo": 2000707806,
+            "regNumber": "20/U/7806/PS",
+            "telephone": "0783992042",
+            "email": "romeo@gmail.com",
+            "course": "BSSE",
+            "nature": "missing coursework",
+            "coursecode": "BSE 1206",
+            "courseunit": "Operating Systems",
+            "yearOfSitting": "2019/2020",
+            "semester": "1",
+            "lecturer": "Kizito Omuto",
+            "status": "WITH LECTURER"
+            
+        },
+        {
+            "id": 2,
+            "name": "Loor Jacobson",
+            "studentNo": 2000707806,
+            "regNumber": "20/U/7806/PS",
+            "telephone": "0783992042",
+            "email": "romeo@gmail.com",
+            "course": "BSSE",
+            "nature": "missing exam mark",
+            "coursecode": "BSE 1201",
+            "courseunit": "Computer networks",
+            "yearOfSitting": "2018/2019",
+            "semester": "2",
+            "lecturer": "Juliana Obel",
+            "status": "WITH HOD"
+            
+        },
+        {
+            "id": 3,
+            "name": "Loor Jacobson",
+            "studentNo": 2000707806,
+            "regNumber": "20/U/7806/PS",
+            "telephone": "0783992042",
+            "email": "romeo@gmail.com",
+            "course": "BSSE",
+            "nature": "Remark",
+            "coursecode": "BSE 1209",
+            "courseunit": "Requirements Engineering",
+            "yearOfSitting": "2017/2018",
+            "semester": "2",
+            "lecturer": "Pius Tuwintu",
+            "status": "PENDING"
+            
+        },
+        {
+            "id": 4,
+            "name": "Loor Jacobson",
+            "studentNo": 2000707806,
+            "regNumber": "20/U/7806/PS",
+            "telephone": "0783992042",
+            "email": "romeo@gmail.com",
+            "course": "BSSE",
+            "nature": "Missing All",
+            "coursecode": "BSE 1209",
+            "courseunit": "Object Oriented Programming",
+            "yearOfSitting": "2019/2020",
+            "semester": "2",
+            "lecturer": "Pixy Dusty",
+            "status": "WITH HOD"
+            
+        },
+        {
+            "id": 5,
+            "name": "Loor Jacobson",
+            "studentNo": 2000707806,
+            "regNumber": "20/U/7806/PS",
+            "telephone": "0783992042",
+            "email": "romeo@gmail.com",
+            "course": "BSSE",
+            "nature": "I want to see my paper so that i verify my marks",
+            "coursecode": "BSE 1209",
+            "courseunit": "Network Application Development",
+            "yearOfSitting": "2020/2021",
+            "semester": "2",
+            "lecturer": "Mary Hearts",
+            "status": "PENDING"
+            
+        }
+    ]
+}
