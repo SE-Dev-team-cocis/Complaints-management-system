@@ -2,7 +2,7 @@ import React from 'react'
 
 function CourseDetails() {
   return (
-    // <div className="form-step">
+    // <div className="card form-step">
     <div className="card" data-step>
             <h4 className="text-center text-grey h4">COURSE DETAILS</h4>
             
@@ -79,7 +79,7 @@ function CourseDetails() {
 
             <div className="row">
                 <div className="d-flex justify-content-between align-items-center mt-3">
-                        <button className="btn btn-m btn-outline-success btn-prev pe-5 ps-5">Previous</button>
+                        <button className="btn btn-m btn-outline-success btn-prev pe-5 ps-5" data-previous>Previous</button>
                         <button className="btn btn-m btn-save btn-success pe-5 ps-5" >Save</button>
                 </div>
             </div>

@@ -1,15 +1,12 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-
-
-import studentImage from './student.jpg'
+import { Link } from 'react-router-dom'
 
 export default function Dashboard() {
     let studentName = "Loor Jacobson"
-    let studentNumber = 2000707806
+    let studentNumber = 2000703505
     let imageurl = `https://myportal.mak.ac.ug/photos/student-photos/${studentNumber}.jpeg`
-    
-  return (
+
+    return (
 
         <div className='side-menu bg-white'>
             <div className='profile text-center mt-2'>
@@ -21,10 +18,10 @@ export default function Dashboard() {
             <div className='menu'>
                 {/* <Link to ="/student" onClick={activeListener}>Home</Link> */}
                 {/* className='dash_link' */}
-                <NavLink to ="/student/complaints/add" >File a complaint</NavLink>
-                <NavLink to ="/student/complaints">All complaints history</NavLink>
+                <Link to="/student/complaints/add">File a complaint</Link>
+                <Link to="/student/complaints">All complaints history</Link>
             </div>
         </div>
- 
-  )
+
+    )
 }

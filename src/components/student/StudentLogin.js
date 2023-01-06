@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+// import { useState } from "react";
+// import { useForm } from "react-hook-form";
 import * as yup from 'yup'
-import {yupResolver} from '@hookform/resolvers/yup'
+// import {yupResolver} from '@hookform/resolvers/yup'
 
 
 import { Link } from "react-router-dom";
@@ -20,7 +20,7 @@ const StudentLogin = () => {
 
  
     const validate = yup.object({
-        username: yup.string("Username cannot contain /><;@^%&#").required("Username is required"),
+        username: yup.number("Username cannot contain /><;@^%&#").required("Username is required"),
         password: yup.string().required("Password is required"),
         newPassword: yup.string().required("New password is required").min(8, "Password must be at least 8 characters").max(23),
         confirmPassword: yup.string().oneOf([yup.ref("newPassword"), null], "Passwords don't match").required("onfirm password is required")

@@ -1,9 +1,16 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
+
+import { AddComplaintContext } from './AddComplaint'
 
 function StudentDetails() {
+    // const {setStepCount} = useContext(AddComplaintContext)
+    // const {stepCount} = useContext(AddComplaintContext)
+
+    // const [newStepCount, setNewStepCount] = useState(1);
+
   return (
     // <div className="form-step active">
-    <div className="card" data-step>
+    <div className="card form-step active" data-step>
 
     <h4 className="text-center text-grey h4">STUDENT DETAILS</h4> 
     
@@ -43,7 +50,11 @@ function StudentDetails() {
 
     <div className="row">
     <div className="d-flex justify-content-center align-items-center mt-3">
-         <button type="button" className="btn btn-m btn-outline-success btn-next pe-5 ps-5" id="btn">Next</button>
+         <button type="button" onClick={()=>{
+            // setStepCount((prev) =>prev+1)
+            console.log("next clicked")
+            }
+        } className="btn btn-m btn-outline-success btn-next pe-5 ps-5" id="btn" data-next>Next</button>
         
     </div>
 </div>

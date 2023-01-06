@@ -89,3 +89,15 @@
 .error{
     color: red;
 }
+
+.preview.active{
+    overflow: hidden;
+}
+
+.active_link{
+    background-color: rgb(175, 14, 14);
+    color: black;
+    border-left: 3px solid rgb(34, 106, 34);
+    padding-left: 20px;
+
+}

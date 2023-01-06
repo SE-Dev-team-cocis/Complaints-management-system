@@ -1,15 +1,24 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
+import Axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 export default function ComplaintList({filterText}) {
-    const [complaints, setComplaints] = useState([]);
-    const [filteredComplaints, setFilteredComplaints] = useState([]);
-    
-
     const url = " http://localhost:8000/complaints"
 
-    function handleFilteredComplaints(complaints){
-        complaints.filter((complaint) =>{
+    const { data, isLoading, isError, refetch } = useQuery(["complaints"], () =>{
+        return Axios.get(url).then((res) => res.data)
+    })
+
+    if(isError){
+        return <p className='mt-2 text-center fs-4'>Sorry, there was an error</p>
+    }
+    if(isLoading){
+        return <p className='mt-2 text-center fs-4'>Loading complaints....</p>
+    }
+
+    function handleFilteredComplaints(data){
+        data.filter((complaint) =>{
             if(complaint.status === "WITH LECTURER"){
                 return complaint
             }else if(complaint.status === "PENDING"){
@@ -19,50 +28,37 @@ export default function ComplaintList({filterText}) {
             }else{
                 return complaint
             }
-            // if(complaint.status === filterText){
-            //     return complaint
-            // }
-            setFilteredComplaints(complaint)
-            
+        
         })
        
         
 
     }
-    console.log(filteredComplaints)
-    useEffect(()=>{
-  
-      fetch(url)
-      .then((res) => {
-        return res.json()
-      })
-      .then(data=>{
-        setComplaints(data);
-        // handleFilteredComplaints(data)
-      
-        // console.log(data)
-       
-      })
-  
-    }, [])
+
   return (
     <div className='container p-4'>
         <table className='table table-bordered'>
-            <tr>
-                <th>ReferenceNo</th>
-                <th>Course code</th>
-                <th>Course unit</th>
-                <th>Nature</th>
-                <th>Lecturer</th>
-                <th>Status</th>
-                {/* <th>Details</th> */}
-            </tr>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Code</th>
+                    <th>Course unit</th>
+                    <th>Nature</th>
+                    <th>Lecturer</th>
+                    <th>Status</th>
+                    {/* <th>Details</th> */}
+                </tr>
+            </thead>
+       
+            <tbody>
             {
-               complaints && complaints.map((complaint) => {
+
+            //    complaints && complaints.map((complaint) => {
+                data && data.map((complaint) => {
                     return (
                         <tr key={complaint.id}>
                             <td className='p-1 text-center'>{complaint.id}</td>
-                            <td className='p-1 text-center'>{complaint.coursecode}</td>
+                            <td className='p-1'>{complaint.coursecode}</td>
                             <td className='p-1'>{complaint.courseunit}</td>
                             <td className='p-1'>{complaint.nature}</td>
                             <td className='p-1'>{complaint.lecturer}</td>
@@ -72,6 +68,7 @@ export default function ComplaintList({filterText}) {
                     )
                 })
             }
+            </tbody>
         </table>
     </div>
   )

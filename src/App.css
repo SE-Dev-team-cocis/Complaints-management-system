@@ -156,6 +156,7 @@ body{
 
 .form-step.active{
   display: block;
+  
 }
 
 /* Progress bar */
