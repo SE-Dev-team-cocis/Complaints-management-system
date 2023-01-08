@@ -1,55 +1,26 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import Axios from "axios";
 
 export default function ComplaintList({filterText}) {
-    const [complaints, setComplaints] = useState([]);
-    const [filteredComplaints, setFilteredComplaints] = useState([]);
-    
 
     const url = " http://localhost:8000/complaints"
 
-    function handleFilteredComplaints(complaints){
-        complaints.filter((complaint) =>{
-            if(complaint.status === "WITH LECTURER"){
-                return complaint
-            }else if(complaint.status === "PENDING"){
-                return complaint
-            }else if(complaint.status === "WITH HOD"){
-                return complaint
-            }else{
-                return complaint
-            }
-            // if(complaint.status === filterText){
-            //     return complaint
-            // }
-            setFilteredComplaints(complaint)
-            
-        })
-       
-        
+    const {data: complaints, isLoading} = useQuery(["complaints"], ()=>{
+        return Axios.get(url).then((res)=>res.data)
+    });
 
+    if(isLoading){
+        return <p className='text-center'>Loading complaints.....</p>
     }
-    console.log(filteredComplaints)
-    useEffect(()=>{
-  
-      fetch(url)
-      .then((res) => {
-        return res.json()
-      })
-      .then(data=>{
-        setComplaints(data);
-        // handleFilteredComplaints(data)
-      
-        // console.log(data)
-       
-      })
-  
-    }, [])
+
+
   return (
     <div className='container p-4'>
         <table className='table table-bordered'>
             <tr>
-                <th>ReferenceNo</th>
+                <th>#</th>
                 <th>Course code</th>
                 <th>Course unit</th>
                 <th>Nature</th>
@@ -58,7 +29,7 @@ export default function ComplaintList({filterText}) {
                 {/* <th>Details</th> */}
             </tr>
             {
-               complaints && complaints.map((complaint) => {
+               complaints?.map((complaint) => {
                     return (
                         <tr key={complaint.id}>
                             <td className='p-1 text-center'>{complaint.id}</td>

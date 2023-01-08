@@ -1,6 +1,9 @@
 import Dashboard from "./Dashboard";
 // import './student';
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import "./steps"
+
 import Header from "../Header";
 import DisclaimerPopup from "./DisclaimerPopup";
 import StudentDetails from "./StudentDetails";
@@ -29,56 +32,70 @@ const AddComplaint = () => {
     const [disclaimerTrigger, setDisclaimerTrigger] = useState(false)
 
 
-    
 
-    function handleSubmit(e){
+
+    function handleSubmit(e) {
         e.preventDefault();
         console.log("submitted ")
     }
-    
 
-    return ( 
+    // Getting the counter value from the reducer store
+    const { complaintStep } = useSelector((state) => state.counter)
+
+
+    return (
         <>
             <Header />
             <div className='content'>
                 <Dashboard />
 
                 <form data-multi-step className="complaint_form" onSubmit={handleSubmit} >
-                       {/* Progress bar */}
+                    {/* Progress bar */}
+                    <p>{complaintStep}</p>
+                    <input type="hidden" name="" id="stepcount" value={complaintStep}/>
                     <div className="progressbar">
                         <div className="progress" id="progress">  </div>
-                            <div className="progress-step active" data-title="Student details"></div>
-                            <div className="progress-step" data-title="Complaint details"></div>
-                            <div className="progress-step" data-title="Preview"></div>
-                        
+                        <div className="progress-step active" data-title="Student details"></div>
+                        <div className="progress-step" data-title="Complaint details"></div>
+                        <div className="progress-step" data-title="Preview"></div>
+
                     </div>
 
-                                
-                        {/* End of progress bar */}
-                   <StudentDetails />
 
-                    <CourseDetails />
+
+                    {/* End of progress bar */}
+                    {/* {console.log(complaintStep)} */}
+                    {complaintStep == 1
+                        ? <StudentDetails />
+                        : complaintStep == 2
+                            ? <CourseDetails />
+                            : complaintStep == 3
+                                ? (<CourseDetails /> && <DisclaimerPopup />)
+                                : complaintStep == 4?(<PreviewPopup name={name} email={email} telephone={telephone} registrationNumber={registrationNumber}
+                                    studentNumber={studentNumber} course={course} nature={nature} semester={semester}
+                                    year={year} lecturer={lecturer} coursecode={coursecode} courseunit={courseunit}
+                                />):""}
 
                     {/* <div className="form-step"> */}
-                    <div className="">
+                    {/* <div className="">
                         {disclaimerTrigger && <DisclaimerPopup />}
-                    </div>
+                    </div> */}
                     {/* </div> */}
-                    <div className="form-step preview">
+                    {/* <div className="form-step preview">
                         <PreviewPopup name={name} email={email} telephone={telephone} registrationNumber={registrationNumber}
-                            studentNumber={studentNumber} course={course}  nature={nature}  semester={semester} 
-                            year={year}  lecturer={lecturer}  coursecode={coursecode} courseunit={courseunit}
+                            studentNumber={studentNumber} course={course} nature={nature} semester={semester}
+                            year={year} lecturer={lecturer} coursecode={coursecode} courseunit={courseunit}
                         />
-                    </div>
+                    </div> */}
                 </form>
-                
+
             </div>
 
         </>
-       
 
 
-     );
+
+    );
 }
- 
+
 export default AddComplaint;

@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import "./student.css"
+import { increment} from '../../redux/counterSlice'
+import { useDispatch } from 'react-redux'
+
 function DisclaimerPopup(trigger) {
+    const dispatch = useDispatch()
+
     const [agree, setAgree] = useState(false)
     const [disagree, setDisagree] = useState(false)
     // const [continue, setContinue] = useState(false)
@@ -60,7 +65,7 @@ function DisclaimerPopup(trigger) {
             }} disabled/>):(<input className='me-2 disagree' type="checkbox" d="disagree" onChange={()=>{
                 setDisagree(disagree=>!disagree);
             }}/>)}Disagree
-            {agree ?(<button type = "button" className='btn btn-outline-success' id="continue">CONTINUE</button>): (<button type = "button" className='btn btn-outline-success' id="continue" disabled>CONTINUE</button>)}
+            {agree ?(<button onClick={()=>dispatch(increment())} type = "button" className='btn btn-outline-success' id="continue">CONTINUE</button>): (<button type = "button" className='btn btn-outline-success' id="continue" disabled>CONTINUE</button>)}
         </div>   
 
     </div>

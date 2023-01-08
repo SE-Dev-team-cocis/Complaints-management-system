@@ -1,13 +1,17 @@
-const multiStepForm = document.querySelector(".complaint_form")
-// const multiStepForm = document.querySelector("[data-multi-step]")
-console.log(multiStepForm)
-// const formSteps = [...multiStepForm.querySelectorAll("[data-step]")]
+// import { useSelector } from "react-redux"
 
-// let currentStep =formSteps.findIndex(step =>{
-//     return step.classList.contains("active")
-// })
+// const { complaintStep } = useSelector((state) => state.counter)
 
-// if(currentStep < 0){
-//     currentStep = 0
-//     formSteps[currentStep].classList.add("active")
+// if(complaintStep == 1){
+//     console.log("Homepage")
 // }
+
+const stepCount = document.getElementById("stepcount")
+// stepCount.addEventListener("change", (e)=>{
+//     console.log("value changed to "+e.target.value)
+// })
+// console.log(stepCount)
+
+function moveStep(stepValue){
+    console.log(stepValue)
+}

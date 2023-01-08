@@ -1,7 +1,10 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { edit } from '../../redux/counterSlice'
 
 function PreviewPopup({name, course, studentNumber, registrationNumber, email, semester, year, lecturer, courseunit, coursecode, nature, telephone}) {
-  return (
+    const dispatch = useDispatch()
+    return (
     <div className='preview_popup'>
         <div className="preview_popup_inner">
             <div className="student_details">
@@ -67,7 +70,7 @@ function PreviewPopup({name, course, studentNumber, registrationNumber, email, s
 
             <div className="row d-flex justify-content-around align-items-center">
 
-                <button className='btn btn-outline-success edit'>Edit</button>
+                <button onClick={()=>dispatch(edit())} className='btn btn-outline-success edit'>Edit</button>
                 <button className='btn btn-success submit'>Submit</button>
             </div>
 

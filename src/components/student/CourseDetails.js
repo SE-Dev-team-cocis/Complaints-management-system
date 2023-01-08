@@ -1,9 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+
+import { increment, decrement } from '../../redux/counterSlice'
+
 
 function CourseDetails() {
+    const dispatch = useDispatch()
   return (
     // <div className="form-step">
-    <div className="card" data-step>
+    <div className="card active" data-step>
             <h4 className="text-center text-grey h4">COURSE DETAILS</h4>
             
             <label className="form-label">Nature of complaint</label>
@@ -79,8 +84,8 @@ function CourseDetails() {
 
             <div className="row">
                 <div className="d-flex justify-content-between align-items-center mt-3">
-                        <button className="btn btn-m btn-outline-success btn-prev pe-5 ps-5">Previous</button>
-                        <button className="btn btn-m btn-save btn-success pe-5 ps-5" >Save</button>
+                        <button onClick={()=>dispatch(decrement())} className="btn btn-m btn-outline-success btn-prev pe-5 ps-5">Previous</button>
+                        <button onClick={()=>dispatch(increment())}  className="btn btn-m btn-save btn-success pe-5 ps-5" >Save</button>
                 </div>
             </div>
         
