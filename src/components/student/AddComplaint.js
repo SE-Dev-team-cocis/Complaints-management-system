@@ -40,7 +40,10 @@ const AddComplaint = () => {
     }
 
     // Getting the counter value from the reducer store
-    const { complaintStep } = useSelector((state) => state.counter)
+    const { complaintStep } = useSelector((state) => state.counter);
+
+    //disbling the scroll functionality when the disclaimer popup is triggered
+    complaintStep === 3||complaintStep === 4?document.body.style.overflow="hidden":document.body.style.overflow="auto";
 
 
     return (

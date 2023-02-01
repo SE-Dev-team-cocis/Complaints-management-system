@@ -6,12 +6,12 @@
 //     console.log("Homepage")
 // }
 
-const stepCount = document.getElementById("stepcount")
-// stepCount.addEventListener("change", (e)=>{
-//     console.log("value changed to "+e.target.value)
-// })
-// console.log(stepCount)
+// const stepCount = document.getElementById("stepcount")
+// // stepCount.addEventListener("change", (e)=>{
+// //     console.log("value changed to "+e.target.value)
+// // })
+// // console.log(stepCount)
 
-function moveStep(stepValue){
-    console.log(stepValue)
-}
+// function moveStep(stepValue){
+//     console.log(stepValue)
+// }

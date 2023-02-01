@@ -1,3 +1,11 @@
+
+/* Student login */
+.login_form{
+    width: 200px;
+    margin: 0 auto;
+}
+
+
 /* Student dashboard */
 .menu a.active{
     background-color: rgb(160, 160, 160);
@@ -93,3 +101,12 @@
     bottom:0; */
     font-size: 0.6rem;
 }
+
+
+.reg_success{
+    color: black;
+    font-size: 0.8rem;
+    border: 1px solid rgb(150, 225, 150);
+    background-color: aquamarine;
+}
+
