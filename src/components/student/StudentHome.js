@@ -3,8 +3,13 @@ import Header from '../Header'
 import './student.css'
 import Dashboard from './Dashboard'
 import homeImage from './student_home_img.jpg'
+import { useSelector } from 'react-redux'
+import PasswordResetPopup from './PasswordResetPopup'
 
 function StudentHome() {
+
+  const { complaintStep } = useSelector((state) => state.counter);
+
   return (
     <>
     <Header />
@@ -31,6 +36,7 @@ function StudentHome() {
         </div>
       </div>
     </div>
+    <PasswordResetPopup />
     </>
     
   )

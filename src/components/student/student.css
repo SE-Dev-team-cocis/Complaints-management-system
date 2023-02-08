@@ -1,5 +1,11 @@
 
+.row span{
+    
+    margin-top: -2px !important;
+}
+
 /* Student login */
+
 .login_form{
     width: 200px;
     margin: 0 auto;
@@ -14,7 +20,7 @@
 }
 
 
-.disclaimer_popup, .preview_popup{
+.disclaimer_popup, .preview_popup, .passwordReset_popup{
     position: fixed;
     top: 0;
     left: 0;
@@ -29,6 +35,16 @@
 
 
 }
+.passwordReset_popup_inner{
+    position: relative;
+    padding: 25px;
+    width: 320px;
+    max-width: auto;
+    /* background-color: white; */
+}
+/* .reset_password{
+    width: 300px !important;
+} */
 
 .disclaimer_popup_inner{
     position: relative;
@@ -94,6 +110,7 @@
     display: block;
 }
 
+
 .error{
     position: absolute;
     color: red;
@@ -108,5 +125,10 @@
     font-size: 0.8rem;
     border: 1px solid rgb(150, 225, 150);
     background-color: aquamarine;
+}
+
+
+.pass_reset{
+    display:none;
 }
 

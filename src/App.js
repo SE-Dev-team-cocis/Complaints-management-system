@@ -11,6 +11,9 @@ import Login from './components/Login';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
 const StudentHome = lazy(() => import("./components/student/StudentHome"))
 const StudentLogin = lazy(() => import("./components/student/StudentLogin"))
 const AddComplaint = lazy(() => import("./components/student/AddComplaint"))
@@ -22,6 +25,9 @@ const ARHome = lazy(() => import("./components/AR/ARHome"))
 const HoDHome = lazy(() => import("./components/hod/HoDHome"))
 
 
+
+
+// toast.configure()
 function App() {
   const client = new QueryClient({
     defaultOptions: {

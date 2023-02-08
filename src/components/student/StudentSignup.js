@@ -19,39 +19,39 @@ const StudentSignup = () => {
     const [signature, setSignature] = useState(null);
     const [year, setYear] = useState(null);
 
-    function handleStudentRegisteration(values) {
+    // function handleStudentRegisteration(values) {
 
-        let student = {
-            firstName:values.firstName,
-            lastName:values.lastName,
-            regNo:values.regNo,
-            studentNo:values.studentNo,
-            email:values.email,
-            tel:values.telephone,
-            program: program,
-            year:year,
-            signature:signature
-        }
+    //     let student = {
+    //         firstName:values.firstName,
+    //         lastName:values.lastName,
+    //         regNo:values.regNo,
+    //         studentNo:values.studentNo,
+    //         email:values.email,
+    //         tel:values.telephone,
+    //         program: program,
+    //         year:year,
+    //         signature:signature
+    //     }
 
-        //Make post request to the backend
-        // console.log(student)
-        //URL to student registration route
-        let url = "http://localhost:8000/student/register"; //Change this to the URL you are going to use to register a student
-        fetch(url, {
-            method: "POST",
-            body: JSON.stringify(student),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(()=>{
-            setMessage(true)
-            // values = initialValues
-            navigate("/student/login")
-        })
+    //     //Make post request to the backend
+    //     // console.log(student)
+    //     //URL to student registration route
+    //     let url = "http://localhost:8000/student/register"; //Change this to the URL you are going to use to register a student
+    //     fetch(url, {
+    //         method: "POST",
+    //         body: JSON.stringify(student),
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     }).then(()=>{
+    //         setMessage(true)
+    //         // values = initialValues
+    //         navigate("/student/login")
+    //     })
 
 
    
-    }
+    // }
 
     const validate = yup.object({
         firstName: yup.string().required("Your first name is required"),
@@ -88,6 +88,21 @@ const StudentSignup = () => {
                     signature: '',
                     course: ''
                 }}
+                onSubmit={(values)=>{
+                    console.log(values)
+                    let student = {
+                        firstName:values.firstName,
+                        lastName:values.lastName,
+                        regNo:values.regNo,
+                        studentNo:values.studentNo,
+                        email:values.email,
+                        tel:values.telephone,
+                        program: program,
+                        year:year,
+                        signature:signature
+                    }
+                    console.log(student);
+                }}
                 validationSchema={validate}
             >
 
@@ -95,9 +110,7 @@ const StudentSignup = () => {
                     formik => (
                         <div className="d-flex justify-content-center align-items-center signup bg-light">
 
-                            <Form onSubmit={(e)=>{
-                                e.preventDefault();
-                                handleStudentRegisteration(formik.values)}}>
+                            <Form>
                             {message&&(<div className="reg_success text-center text-success fs-4 f4-3">Check your email for login credentials</div>)}
                             <h4 className="h4 text-center">Registration form</h4>
                                 <div className="row">
@@ -165,6 +178,7 @@ const StudentSignup = () => {
 
                                 <div className="row mt-4">
                                     <div className="d-flex justify-content-center align-items-center">
+                                        {/* <button className="btn btn-outline-success" type="submit" >Register</button> */}
                                         <button className="btn btn-outline-success" type="submit" >Register</button>
                                     </div>
                                 </div>
