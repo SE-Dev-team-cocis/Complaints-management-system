@@ -1,7 +1,7 @@
 import Dashboard from "./Dashboard";
 // import './student';
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState,useEffect } from "react";
+import { useSelector,useDispatch } from "react-redux";
 import "./steps"
 
 import Header from "../Header";
@@ -9,10 +9,17 @@ import DisclaimerPopup from "./DisclaimerPopup";
 import StudentDetails from "./StudentDetails";
 import CourseDetails from "./CourseDetails";
 import PreviewPopup from "./PreviewPopup";
-
 import './steps.js';
+import {setComplaint} from '../redux/counterSlice'
+
+
 
 const AddComplaint = () => {
+    //sample
+const cart = useSelector((state) => state.counter);
+const dispatch=useDispatch()
+
+
     const [name, setName] = useState("Loor Jacobson")
     const [registrationNumber, setRegistrationNumber] = useState("20/U/7806/PS")
     const [studentNumber, setStudentNumber] = useState("2000707806")
@@ -44,8 +51,19 @@ const AddComplaint = () => {
 
     //disbling the scroll functionality when the disclaimer popup is triggered
     complaintStep === 3||complaintStep === 4?document.body.style.overflow="hidden":document.body.style.overflow="auto";
-
-
+   
+   
+    const sample={
+        name:"jjumba",
+        age:22
+    }
+    const handleClick=()=>{
+        dispatch(setComplaint(sample))
+    }
+    useEffect(()=>{
+        handleClick()
+    },[])
+   
     return (
         <>
             <Header />
@@ -90,6 +108,7 @@ const AddComplaint = () => {
                             year={year} lecturer={lecturer} coursecode={coursecode} courseunit={courseunit}
                         />
                     </div> */}
+                   
                 </form>
 
             </div>

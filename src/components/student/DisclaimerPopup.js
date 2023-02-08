@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./student.css"
-import { increment} from '../../redux/counterSlice'
+import { increment} from '../redux/counterSlice'
 import { useDispatch } from 'react-redux'
 
 function DisclaimerPopup(trigger) {

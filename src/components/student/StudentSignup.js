@@ -97,7 +97,9 @@ const StudentSignup = () => {
 
                             <Form onSubmit={(e)=>{
                                 e.preventDefault();
+                                window.alert(JSON.stringify(formik.values))
                                 handleStudentRegisteration(formik.values)}}>
+                               
                             {message&&(<div className="reg_success text-center text-success fs-4 f4-3">Check your email for login credentials</div>)}
                             <h4 className="h4 text-center">Registration form</h4>
                                 <div className="row">

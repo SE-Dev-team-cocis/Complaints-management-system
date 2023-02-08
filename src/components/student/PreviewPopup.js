@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { edit } from '../../redux/counterSlice'
+import { edit } from '../redux/counterSlice'
 
 function PreviewPopup({name, course, studentNumber, registrationNumber, email, semester, year, lecturer, courseunit, coursecode, nature, telephone}) {
     const dispatch = useDispatch()

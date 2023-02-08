@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from 'yup'
-
+import axios from 'axios'
 import { useNavigate, useParams } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,6 +12,7 @@ import Logo from '../muk.png';
 
 import { Formik, Form } from "formik";
 import { TextField } from "./TextField";
+
 
 const StudentLogin = () => {
     //For the toast notification
@@ -42,25 +43,55 @@ const StudentLogin = () => {
             return
         }else{
             let loginDetails = {
-                username: values.username,
-                oldPassword: values.password,
+                studentNo: values.username,
+                password: values.password,
                 newPassword: values.newPassword
+                //jjjj
             }
             // console.log(loginDetails)
             // navigate("/student/");
 
             //Make a post request to the backend
-            let url = "http://localhost:8000/student/login"; //Change this to the URL you are going to use to login
-            fetch(url, {
-                method: "POST",
-                body: JSON.stringify(loginDetails),
-                headers: {
-                    "Content-Type": "application/json"
-                    }
+            let url = "http://localhost:4000/student/login"; //Change this to the URL you are going to use to login
+            // fetch(url, {
+            //     method: "POST",
+            //     body: JSON.stringify(loginDetails),
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //         }
+            //     }
+            // ).then((response)=>{
+            //     window.alert(JSON.stringify(response))
+            //     navigate("/student/")
+            // }).catch(error=>{
+            //     window.alert(error)
+            //     return
+            // })
+          
+            axios.post(url,loginDetails,{
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization':'Bearer '+ 123
                 }
-            ).then(()=>{
-                navigate("/student/")
-            })
+            }).then((response)=>{
+                    const {user,token,complaints,login}=response.data;
+                    if(login===true){
+                    localStorage.setItem("student",JSON.stringify(user));
+                    localStorage.setItem("token",JSON.stringify(token));
+                    localStorage.setItem("complaint",JSON.stringify(complaints));
+                    navigate("/student/")
+                    }else{
+                         toast.error(response.data.message,{
+                            position: toast.POSITION.TOP_CENTER
+                         });
+                       
+                        return
+                    }
+                }).catch(error=>{
+                    window.alert(error)
+                    console.log(error)
+                    return
+                })
 
             // console.log(loginDetails)
         }
