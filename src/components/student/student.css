@@ -20,6 +20,19 @@
 }
 
 
+.complaints_filter select{
+    width: 150px !important;
+    position: absolute;
+    right: 12px;
+    top: 14px;
+}
+.complaints{
+    background-color: #ccc !important;
+    position: relative;
+}
+
+
+
 .disclaimer_popup, .preview_popup, .passwordReset_popup{
     position: fixed;
     top: 0;
@@ -131,4 +144,5 @@
 .pass_reset{
     display:none;
 }
+
 

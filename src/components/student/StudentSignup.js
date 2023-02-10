@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from '../muk.png';
 
-import { ErrorMessage, useField } from 'formik'
 import { TextField } from "./TextField";
 import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -13,45 +12,14 @@ import axios from "axios";
 const StudentSignup = () => {
 
     const navigate = useNavigate();
+
     const [message, setMessage] = useState(false);
 
     const [program, setProgram] = useState("");
     const [signature, setSignature] = useState(null);
     const [year, setYear] = useState(null);
 
-    // function handleStudentRegisteration(values) {
 
-    //     let student = {
-    //         firstName:values.firstName,
-    //         lastName:values.lastName,
-    //         regNo:values.regNo,
-    //         studentNo:values.studentNo,
-    //         email:values.email,
-    //         tel:values.telephone,
-    //         program: program,
-    //         year:year,
-    //         signature:signature
-    //     }
-
-    //     //Make post request to the backend
-    //     // console.log(student)
-    //     //URL to student registration route
-    //     let url = "http://localhost:8000/student/register"; //Change this to the URL you are going to use to register a student
-    //     fetch(url, {
-    //         method: "POST",
-    //         body: JSON.stringify(student),
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     }).then(()=>{
-    //         setMessage(true)
-    //         // values = initialValues
-    //         navigate("/student/login")
-    //     })
-
-
-   
-    // }
 
     const validate = yup.object({
         firstName: yup.string().required("Your first name is required"),
@@ -81,25 +49,25 @@ const StudentSignup = () => {
                     firstName: '',
                     lastName: '',
                     email: '',
-                    regNo:'',
+                    regNo: '',
                     studentNo: '',
                     year: '',
                     telephone: '',
                     signature: '',
                     course: ''
                 }}
-                onSubmit={(values)=>{
-                    console.log(values)
+                onSubmit={(values) => {
+
                     let student = {
-                        firstName:values.firstName,
-                        lastName:values.lastName,
-                        regNo:values.regNo,
-                        studentNo:values.studentNo,
-                        email:values.email,
-                        tel:values.telephone,
+                        firstName: values.firstName,
+                        lastName: values.lastName,
+                        regNo: values.regNo,
+                        studentNo: values.studentNo,
+                        email: values.email,
+                        tel: values.telephone,
                         program: program,
-                        year:year,
-                        signature:signature
+                        year: year,
+                        signature: signature
                     }
                     console.log(student);
                 }}
@@ -111,8 +79,8 @@ const StudentSignup = () => {
                         <div className="d-flex justify-content-center align-items-center signup bg-light">
 
                             <Form>
-                            {message&&(<div className="reg_success text-center text-success fs-4 f4-3">Check your email for login credentials</div>)}
-                            <h4 className="h4 text-center">Registration form</h4>
+                                {message && (<div className="reg_success text-center text-success fs-4 f4-3">Check your email for login credentials</div>)}
+                                <h4 className="h4 text-center">Registration form</h4>
                                 <div className="row">
                                     <div className="col-6">
                                         <TextField label="First name" name="firstName" type="text" />
@@ -172,7 +140,7 @@ const StudentSignup = () => {
                                     <div className="col-12">
                                         {/* <TextField label="Signature" name="signature" type="file" /> */}
                                         <label htmlFor="" className="form-label mt-2 mb-0 text-light"></label>
-                                        <input type="file" name="signature" className="form-control" onChange={(e)=>setSignature(e.target.value)}/>
+                                        <input type="file" name="signature" className="form-control" onChange={(e) => setSignature(e.target.value)} />
                                     </div>
                                 </div>
 
