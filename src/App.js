@@ -14,7 +14,9 @@ import Footer from './components/Footer';
 
 const StudentHome = lazy(() => import("./components/student/StudentHome"))
 const StudentLogin = lazy(() => import("./components/student/StudentLogin"))
-const AddComplaint = lazy(() => import("./components/student/AddComplaint"))
+
+// const AddComplaint = lazy(() => import("./components/student/AddComplaint"))
+const AddComplaint = lazy(() => import("./components/student/AddComplaint1"))
 const Complaints = lazy(() => import("./components/student/Complaints"))
 const StudentSignup = lazy(() => import("./components/student/StudentSignup"))
 

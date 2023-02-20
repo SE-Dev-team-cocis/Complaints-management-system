@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { edit } from '../../redux/counterSlice'
+import { edit } from '../../../redux/counterSlice'
 
-function PreviewPopup({ name, course, studentNumber, registrationNumber, email, semester, year, lecturer, courseunit, coursecode, nature, telephone }) {
+
+function PreviewPopup({ name, course, studentNumber, registrationNumber, email, semester, yearOfSitting, lecturer, courseunit, coursecode, nature, telephone }) {
     const dispatch = useDispatch()
     return (
         <div className='preview_popup'>
@@ -51,19 +52,20 @@ function PreviewPopup({ name, course, studentNumber, registrationNumber, email, 
                             Course unit: {courseunit}
                         </div>
                         <div className="col-4">
-                            Lecturer: {lecturer}
+                            Semester: {semester}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-6">
-                            Year of sitting: {year}
+                            Year of sitting: {yearOfSitting}
                         </div>
 
                         <div className="col-6">
-                            Selester: {semester}
+                            Course Lecturer: {lecturer}
+
                         </div>
                         <div className="col-6">
-                            Nature: {nature}
+                            Nature of Complaint: {nature}
                         </div>
                     </div>
                 </div>

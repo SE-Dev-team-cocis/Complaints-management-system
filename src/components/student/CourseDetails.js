@@ -6,36 +6,37 @@ import { increment, decrement } from '../../redux/counterSlice'
 
 function CourseDetails() {
     const dispatch = useDispatch()
-  return (
-    // <div className="form-step">
-    <div className="card active" data-step>
+
+    return (
+        // <div className="form-step">
+        <div className="card active" data-step>
             <h4 className="text-center text-grey h4">COURSE DETAILS</h4>
-            
+
             <label className="form-label">Nature of complaint</label>
             <div className="row">
                 <div className="form-check col-6">
                     <input type="radio" className="form-check-input" name="nature" value="" />Missing Coursework
-                    
+
                 </div>
                 <div className="form-check col-6">
-                    <input type="radio" className="form-check-input" name="nature" value=""/>Missing Exam
-                    
+                    <input type="radio" className="form-check-input" name="nature" value="" />Missing Exam
+
                 </div>
             </div>
             <div className="row">
                 <div className="form-check col-6">
                     <input type="radio" className="form-check-input" name="nature" value="" />Missing All
-                    
+
                 </div>
                 <div className="form-check col-6">
-                    <input type="radio" className="form-check-input" name="nature" value=""/>Remarking
-                    
+                    <input type="radio" className="form-check-input" name="nature" value="" />Remarking
+
                 </div>
             </div>
             <div className="row">
                 <div className="form-check col-4">
                     <input type="radio" className="form-check-input" name="nature" value="" />Others(specify)
-                    
+
                 </div>
                 <div className="col-8">
                     <textarea className="form-control" rows="5" id="comment" name="text"></textarea>
@@ -68,7 +69,7 @@ function CourseDetails() {
                         <option value="1">1</option>
                         <option value="2">1</option>
                     </select>
-        
+
                 </div>
             </div>
 
@@ -84,13 +85,13 @@ function CourseDetails() {
 
             <div className="row">
                 <div className="d-flex justify-content-between align-items-center mt-3">
-                        <button onClick={()=>dispatch(decrement())} className="btn btn-m btn-outline-success btn-prev pe-5 ps-5">Previous</button>
-                        <button onClick={()=>dispatch(increment())}  className="btn btn-m btn-save btn-success pe-5 ps-5" >Save</button>
+                    <button onClick={() => dispatch(decrement())} className="btn btn-m btn-outline-success btn-prev pe-5 ps-5">Previous</button>
+                    <button onClick={() => dispatch(increment())} className="btn btn-m btn-save btn-success pe-5 ps-5" >Save</button>
                 </div>
             </div>
-        
-    </div>
-  )
+
+        </div>
+    )
 }
 
 export default CourseDetails

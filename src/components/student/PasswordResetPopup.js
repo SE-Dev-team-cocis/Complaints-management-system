@@ -21,7 +21,7 @@ function PasswordResetPopup() {
       draggable: false,
       progress: undefined,
       theme: "light",
-      });
+    });
   }
 
 
@@ -30,17 +30,17 @@ function PasswordResetPopup() {
     confirmPassword: yup.string().oneOf([yup.ref("newPassword"), null], "Passwords don't match").required("Confirm password is required")
   })
 
-  function removePopup(values){
+  function removePopup(values) {
 
-      const popup = document.getElementById("reset")
-       popup.classList.add("pass_reset")
+    const popup = document.getElementById("reset")
+    popup.classList.add("pass_reset")
 
 
     // if(newPassword !== confirmNewPassword){
     //   return
     // }else{
     //   // console.log("Passwords match")
-    
+
     //   const popup = document.getElementById("reset")
     //   // if(popup.classList.contains("visible")){
     //     // popup.classList.remove("visible")
@@ -48,7 +48,7 @@ function PasswordResetPopup() {
     //   // }
     //   //Handle password reset
     //   // axios.post("http://localhost:8000/student/reset-password", {
-        
+
     //   // })
     // }
 
@@ -56,71 +56,71 @@ function PasswordResetPopup() {
 
   return (
     <>
-    <div className="passwordReset_popup" id='reset'>
-      {/* <div className="passwordReset_popup_inner"> */}
+      <div className="passwordReset_popup" id='reset'>
+        {/* <div className="passwordReset_popup_inner"> */}
 
-            <div className="passwordReset_popup_inner visible login_form reset_password bg-light rounded">
-                <Formik
-                    initialValues={{
-                        newPassword: '',
-                        confirmPassword: ''
-                    }}
-                    onSubmit={(values) => {
-                      // console.log(values)
-                      const newPassword = values.newPassword
-                      const confirmPassword = values.confirmPassword
+        <div className="passwordReset_popup_inner visible login_form reset_password bg-light rounded">
+          <Formik
+            initialValues={{
+              newPassword: '',
+              confirmPassword: ''
+            }}
+            onSubmit={(values) => {
+              // console.log(values)
+              const newPassword = values.newPassword
+              const confirmPassword = values.confirmPassword
 
-                      if(newPassword === confirmPassword){
-                        //Take data into the database
+              if (newPassword === confirmPassword) {
+                //Take data into the database
 
-                        notify() //Toast notification
-                        removePopup(); //remove the popup
-                      }else{
-                        return
-                      }
+                notify() //Toast notification
+                removePopup(); //remove the popup
+              } else {
+                return
+              }
 
-                    }}
-                    validationSchema={validate}
-                    >
-                    {
-                        formik => (
-                            <div className='reset_password'>
-                                {/* {console.log(formik.values)}     */}
-                                <h4 className="h4 text-center">Reset Your password to continue</h4>
-                                <Form >
-                                  
-                                    <div className="row">
-                                        <div className="col-12">
-                                        <TextField label="New Password" name="newPassword" type="password" />
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-12">
-                                        <TextField label="Confirm Pasword" name="confirmPassword" type="password" />
-                                        </div>
-                                    </div>
+            }}
+            validationSchema={validate}
+          >
+            {
+              formik => (
+                <div className='reset_password'>
+                  {/* {console.log(formik.values)}     */}
+                  <h4 className="h4 text-center">Reset Your password to continue</h4>
+                  <Form >
 
-                                <div className="row d-flex justify-content-between align-items-center mt-3">
-                                  {/* <div className="col"> */}
-                                    <button type="submit" className="btn btn-success btn-sm">Reset Password</button>
-                                    {/* <button type="submit" className="btn btn-success btn-sm" onClick={()=>handlePasswordReset(formik.values)}>Reset Password</button> */}
-                                  {/* </div> */}
-                                </div>
-                          
-                                </Form>
-     
-                            </div>
-                        )
-                    }
+                    <div className="row">
+                      <div className="col-12">
+                        <TextField label="New Password" name="newPassword" type="password" />
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-12">
+                        <TextField label="Confirm Pasword" name="confirmPassword" type="password" />
+                      </div>
+                    </div>
 
-                       
-                </Formik>
-            </div>
+                    <div className="row d-flex justify-content-between align-items-center mt-3">
+                      {/* <div className="col"> */}
+                      <button type="submit" className="btn btn-success btn-sm">Reset Password</button>
+                      {/* <button type="submit" className="btn btn-success btn-sm" onClick={()=>handlePasswordReset(formik.values)}>Reset Password</button> */}
+                      {/* </div> */}
+                    </div>
+
+                  </Form>
+
+                </div>
+              )
+            }
 
 
-      {/* </div> */}
+          </Formik>
+        </div>
 
-    </div>
+
+        {/* </div> */}
+
+      </div>
       <ToastContainer />
     </>
 

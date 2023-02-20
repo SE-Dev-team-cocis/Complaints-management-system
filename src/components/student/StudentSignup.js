@@ -77,6 +77,7 @@ const StudentSignup = () => {
                 {
                     formik => (
                         <div className="d-flex justify-content-center align-items-center signup bg-light">
+                            {console.log(formik.errors)}
 
                             <Form>
                                 {message && (<div className="reg_success text-center text-success fs-4 f4-3">Check your email for login credentials</div>)}
@@ -147,6 +148,7 @@ const StudentSignup = () => {
                                 <div className="row mt-4">
                                     <div className="d-flex justify-content-center align-items-center">
                                         {/* <button className="btn btn-outline-success" type="submit" >Register</button> */}
+                                        {/* {!formik.isValid ? <button className="btn btn-outline-success" type="submit" >Register</button> : <button className="btn btn-outline-success" type="submit" disabled >Register</button>} */}
                                         <button className="btn btn-outline-success" type="submit" >Register</button>
                                     </div>
                                 </div>
