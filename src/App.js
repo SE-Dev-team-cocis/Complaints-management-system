@@ -19,7 +19,8 @@ const StudentSignup = lazy(() => import("./components/student/StudentSignup"))
 const LecturerHome = lazy(() => import("./components/lecturer/LecturerHome"))
 const ARHome = lazy(() => import("./components/AR/ARHome"))
 const HoDHome = lazy(() => import("./components/hod/HoDHome"))
-
+//test route
+const Sample = lazy(() => import("./components/student/Sample"))
 
 function App() {
   const client = new QueryClient({
@@ -46,6 +47,14 @@ function App() {
                  <StudentHome />
               </Suspense>
             } />
+
+            {/* test route for first login*/}
+            <Route exact path="/student/sample/:token" element={
+              <Suspense fallback={<p className='text-center'>Loading....</p>} >
+                 <Sample />
+              </Suspense>
+            } />
+            {/*End test route for first login*/}
 
             <Route exact path="/student/signup" element={
                <Suspense fallback={<p className='text-center'>Loading....</p>} >
