@@ -4,6 +4,9 @@ import { edit } from '../../redux/counterSlice'
 
 function PreviewPopup({ name, course, studentNumber, registrationNumber, email, semester, year, lecturer, courseunit, coursecode, nature, telephone }) {
     const dispatch = useDispatch()
+
+    const { complaintStep } = useSelector((state) => state.counter)
+
     return (
         <div className='preview_popup'>
             <div className="preview_popup_inner">

@@ -5,10 +5,6 @@ import { useSelector } from "react-redux";
 import "./steps"
 
 import Header from "../Header";
-import DisclaimerPopup from "./DisclaimerPopup";
-import StudentDetails from "./StudentDetails";
-import CourseDetails from "./CourseDetails";
-import PreviewPopup from "./PreviewPopup";
 
 
 import RefactoredAddComplaint from './RefactoredAddComplaint'
@@ -16,26 +12,6 @@ import RefactoredAddComplaint from './RefactoredAddComplaint'
 import './steps.js';
 
 const AddComplaint = () => {
-    const [name, setName] = useState("Loor Jacobson")
-    const [registrationNumber, setRegistrationNumber] = useState("20/U/7806/PS")
-    const [studentNumber, setStudentNumber] = useState("2000707806")
-    const [course, setCourse] = useState("BSSE")
-    const [telephone, setTelephone] = useState("778399583")
-    const [email, setEmail] = useState("loorinho@gmail.com")
-    const [nature, setNature] = useState("missing coursework")
-    const [coursecode, setCourseCode] = useState("BSSE 5422")
-    const [courseunit, setCourseUnit] = useState("Operating Systems")
-    const [year, setYear] = useState("2020/2021")
-    const [semester, setSemester] = useState("2")
-    const [lecturer, setLecturer] = useState("Micheal Mabikke")
-    // const [signature, setSugnature] = useState("")
-
-
-    const [previewTrigger, setPreviewTrigger] = useState(false)
-    const [disclaimerTrigger, setDisclaimerTrigger] = useState(false)
-
-
-
 
     function handleSubmit(e) {
         e.preventDefault();

@@ -85,5 +85,28 @@
             "status": "PENDING"
             
         }
+    ],
+    "lecturers": [
+        {"id": 1, "name": "KANANGWA BENJAMIN", "department": "Networks"},
+        {"id": 2, "name": "KIBOMBO JOSEPH BALIKUDDEMBE", "department": "Networks"},
+        {"id": 3, "name": "SANSA JULIANNE SUSANNE", "department": "Networks"},
+        {"id": 4, "name": "BULEGA TONNY EDDIE", "department": "Networks"},
+        {"id": 5, "name": "MWEBAZE JOHNSON B", "department": "Networks"},
+        {"id": 6, "name": "KYANDA SWAIB KAAWAASE", "department": "Networks"},
+        {"id": 7, "name": "MIREMBE PATRICK DRAKE", "department": "Networks"},
+        {"id": 8, "name": "AGABA JOAB EZRA", "department": "Networks"},
+        {"id": 9, "name": "KYEBAMBE MOSES NTANDA", "department": "Networks"},
+        {"id": 10, "name": "ODONGO STEVEN EYOBU", "department": "Networks"},
+        {"id": 11, "name": "MBABAZI RUTH MUTEBI", "department": "Networks"},
+        {"id": 12, "name": "MUWONGE BERNARD SSAJJABBI", "department": "Networks"},
+        {"id": 13, "name": "NSABAGWA MARY", "department": "Networks"},
+        {"id": 14, "name": "KAMULEGEYA GRACE BUGEMBE", "department": "Networks"},
+        {"id": 15, "name": "MWOTIL ALEX", "department": "Networks"},
+        {"id": 16, "name": "KIMBUGWE NASSER", "department": "Networks"},
+        {"id": 17, "name": "SSOZI PHIONA CATHERINE", "department": "Information Systems"},
+        {"id": 18, "name": "WAKHOLI PETER KHISA", "department": "Information Systems"},
+        {"id": 19, "name": "NAMATOVU HASIFAH KASUJJA", "department": "Information Systems"},
+        {"id": 20, "name": "NANSAMBA BARBARA", "department": "Computer Science"}
+      
     ]
 }

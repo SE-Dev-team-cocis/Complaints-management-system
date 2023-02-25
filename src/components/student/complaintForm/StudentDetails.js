@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { increment } from '../../../redux/counterSlice'
 
 import { TextField } from '../TextField'
+import ProgressBar from './ProgressBar'
 
 function StudentDetails() {
 
@@ -13,6 +14,7 @@ function StudentDetails() {
 
     return (
         <div className="card active" data-step>
+            <ProgressBar complaintStep={complaintStep} />
 
             <h4 className="text-center text-grey h4">STUDENT DETAILS</h4>
 

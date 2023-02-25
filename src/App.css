@@ -193,6 +193,16 @@ body{
   width: 0%;
   transition: 0.3s ease-in-out;
 }
+.progress1{
+  background-color: darkgreen;
+  width: calc(100/3);
+  transition: 0.3s ease-in-out;
+}
+.progress2{
+  background-color: darkgreen;
+  width:100%;
+  transition: 0.3s ease-in-out;
+}
 
 .progress-step{
   width: 35px;

@@ -3,13 +3,15 @@ import { Formik, Form } from 'formik'
 
 import * as yup from 'yup'
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+// import { edit, resetCounter } from '../redux/counterSlice'
 
 import Header from "../Header";
 import Dashboard from './Dashboard';
 
 import DisclaimerPopup from "./complaintForm/DisclaimerPopup";
 import PreviewPopup from "./complaintForm/PreviewPopup";
+import ProgressBar from './complaintForm/ProgressBar';
 
 import StudentDetails from './complaintForm/StudentDetails';
 import CourseDetails from './complaintForm/CourseDetails';
@@ -17,11 +19,14 @@ import CourseDetails from './complaintForm/CourseDetails';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { resetCounter } from '../../redux/counterSlice';
+import Step from './complaintForm/Step';
 
 
 function AddComplaint1() {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const notify = () => {
         toast.success('Complaint sucessfully submitted', {
@@ -54,7 +59,7 @@ function AddComplaint1() {
     }
 
     // Getting the counter value from the reducer store
-    const { complaintStep } = useSelector((state) => state.counter);
+    let { complaintStep } = useSelector((state) => state.counter);
 
     //disbling the scroll functionality when the disclaimer popup is triggered
     complaintStep === 3 || complaintStep === 4 ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
@@ -67,16 +72,20 @@ function AddComplaint1() {
         course: yup.string().required(),
         telephone: yup.number().required(),
         email: yup.string().email().required(),
-        nature: yup.string().required()
-
-
+        nature: yup.string().required().label("Nature"),
+        courseUnit: yup.string().required().label("Course unit"),
+        courseCode: yup.string().required().label("Course code"),
+        semester: yup.string().required().label("Semester"),
+        courseLecturer: yup.string().required().label("Course lecturer"),
+        yearOfSitting: yup.string().required().label("Year of sitting"),
+        text: yup.string(),
 
         // regNo: yup.string().required(),
         // year: yup.string().required("Your current yea of study is required"),
         // signature: yup.blob().oneOf([yup.ref("newPassword"), null], "Passwords don't match").required("onfirm password is required")
     })
 
-
+    // complaintStep = 3
     return (
         <>
             <Header />
@@ -87,37 +96,31 @@ function AddComplaint1() {
                     initialValues={initialValues}
 
                     onSubmit={(values) => {
-                        notify();
-                        complaintStep = 1
+                        dispatch(resetCounter())
+                        // notify();
                         navigate("/student/complaints")
                     }}
 
                 >
                     {
-                        ({ handleChange, values }) => (
-
+                        ({ handleChange, values, touched, errors }) => (
                             <Form className='p-5'>
-                                <p>{complaintStep}</p>
-                                <input type="hidden" name="" id="stepcount" value={complaintStep} />
-                                <div className="progressbar">
-                                    <div className="progress" id="progress">  </div>
-                                    <div className="progress-step active" data-title="Student details"></div>
-                                    <div className="progress-step" data-title="Complaint details"></div>
-                                    <div className="progress-step" data-title="Preview"></div>
+                                <Step handleChange={handleChange} name={values.name} email={values.email} telephone={values.telephone} registrationNumber={values.regNo}
+                                    studentNumber={values.studentNo} course={values.course} nature={values.nature} semester={values.semester}
+                                    yearOfSitting={values.yearOfSitting} lecturer={values.courseLecturer} coursecode={values.courseCode} courseunit={values.courseUnit} />
 
-                                </div>
 
-                                {complaintStep === 1
+                                {/* {complaintStep === 1
                                     ? <StudentDetails /> :
                                     complaintStep === 2
                                         ? <CourseDetails handleChange={handleChange} /> :
                                         complaintStep === 3
                                             ? (<CourseDetails handleChange={handleChange} /> && <DisclaimerPopup />) :
-                                            complaintStep === 4 ? <PreviewPopup
+                                            complaintStep === 4 ? (<CourseDetails handleChange={handleChange} /> && <PreviewPopup
                                                 name={values.name} email={values.email} telephone={values.telephone} registrationNumber={values.regNo}
                                                 studentNumber={values.studentNo} course={values.course} nature={values.nature} semester={values.semester}
                                                 yearOfSitting={values.yearOfSitting} lecturer={values.courseLecturer} coursecode={values.courseCode} courseunit={values.courseUnit}
-                                            /> : ""}
+                                            />) : ""} */}
                             </Form>
                         )
                     }

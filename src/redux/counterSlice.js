@@ -12,14 +12,16 @@ export const counterSlice = createSlice({
     decrement: (state) => {
       state.complaintStep -= 1
     },
+    resetCounter: (state) => {
+      state.complaintStep = 1
+    },
     edit: (state) => {
       state.complaintStep = 2
-    }
-   
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, edit } = counterSlice.actions
+export const { increment, decrement, edit, resetCounter } = counterSlice.actions
 
 export default counterSlice.reducer

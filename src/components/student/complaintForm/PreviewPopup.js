@@ -5,6 +5,8 @@ import { edit } from '../../../redux/counterSlice'
 
 function PreviewPopup({ name, course, studentNumber, registrationNumber, email, semester, yearOfSitting, lecturer, courseunit, coursecode, nature, telephone }) {
     const dispatch = useDispatch()
+
+
     return (
         <div className='preview_popup'>
             <div className="preview_popup_inner">
@@ -65,7 +67,7 @@ function PreviewPopup({ name, course, studentNumber, registrationNumber, email, 
 
                         </div>
                         <div className="col-6">
-                            Nature of Complaint: {nature}
+                            Nature of complaint: {nature}
                         </div>
                     </div>
                 </div>
@@ -74,6 +76,7 @@ function PreviewPopup({ name, course, studentNumber, registrationNumber, email, 
 
                     <button onClick={() => dispatch(edit())} className='btn btn-outline-success edit'>Edit</button>
                     <button className='btn btn-success submit'>Submit</button>
+                    {/* <button className='btn btn-success' onClick={handleSubmit} >Submit</button> */}
                 </div>
 
             </div>
