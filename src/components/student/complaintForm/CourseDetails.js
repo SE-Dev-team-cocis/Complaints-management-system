@@ -9,7 +9,11 @@ import { TextField } from '../TextField'
 import LecturerList from './LecturerList'
 import ProgressBar from './ProgressBar'
 
+import DisclaimerPopup from './DisclaimerPopup'
+
+
 import { decrement, increment } from '../../../redux/counterSlice'
+import PreviewPopup from './PreviewPopup'
 
 function CourseDetails({ handleChange }) {
 
@@ -18,6 +22,7 @@ function CourseDetails({ handleChange }) {
 
     return (
         <>
+
 
             <div className="card active" data-step>
                 <ProgressBar complaintStep={complaintStep} />
@@ -90,13 +95,21 @@ function CourseDetails({ handleChange }) {
 
                 <div className="row">
                     <div className="d-flex justify-content-center align-items-center mt-3">
-                        {/* <button type="submit">Next</button> */}
                         <button onClick={() => dispatch(decrement())} className="btn btn-m me-5 btn-outline-success btn-prev pe-5 ps-5">Previous</button>
-                        {/* <button onClick={() => dispatch(increment())} className="btn btn-m btn-save btn-success pe-5 ps-5" >Save</button> */}
                         <button onClick={() => dispatch(increment())} className='btn btn-m btn-save btn-success pe-5 ps-5'> Save</button>
                     </div>
                 </div>
             </div>
+            {
+                console.log(complaintStep)
+            }
+
+            {
+                complaintStep === 3 && <DisclaimerPopup />
+            }
+            {
+                complaintStep === 4 && <PreviewPopup />
+            }
 
         </>
     )

@@ -47,6 +47,8 @@
     align-items: center;
 
 
+    z-index: 5
+
 }
 .passwordReset_popup_inner{
     position: relative;

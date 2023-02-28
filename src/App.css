@@ -176,7 +176,7 @@ body{
   counter-reset: step;
 }
 
-.progressbar::before, .progress{
+.progressbar::before, .progress, .progress1, .progress2{
   content: '';
   position: absolute;
   top: 50%;
@@ -195,7 +195,7 @@ body{
 }
 .progress1{
   background-color: darkgreen;
-  width: calc(100/3);
+  width: 50%;
   transition: 0.3s ease-in-out;
 }
 .progress2{

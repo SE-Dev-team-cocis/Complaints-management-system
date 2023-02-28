@@ -1,59 +1,20 @@
 import React, { useState } from 'react'
 import "../student.css"
 import { increment, decrement } from '../../../redux/counterSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 function DisclaimerPopup(trigger) {
     const dispatch = useDispatch()
+    const { complaintStep } = useSelector((state) => state.counter)
 
     const [agree, setAgree] = useState(false)
     const [disagree, setDisagree] = useState(false)
-    // const [continue, setContinue] = useState(false)
-
-    // const agree = document.getElementById("agree");
-    // const disagree = document.getElementById("disagree");
-
-
-    function isChecked(e) {
-
-
-        // const button = document.getElementById("continue");
-
-        // const agree = document.getElementById("agree").isChecked;
-        // const disagree = document.getElementById("disagree").isChecked;
-
-        // // if(e.target.classList.contains('agree')){
-        // if(agree){
-        //     button.disabled = false
-        //     disagree.disabled = true
-        //     // console.log("agree checked")
-        // }else{
-        //     button.disabled = true;
-        //     disagree.disabled = false
-        //     // console.log("agree unchecked ")
-        // }
-
-        // if(e.target.classList.contains('agree')){
-        //     button.disabled = true;
-        //     agree.disabled = true;
-        //     // console.log("disagree checked")
-        // }else{
-        //     agree.disabled = false;
-        //     // button.disabled =
-        // }
-
-        // // if(agree.isChecked){
-        // //     button.disabled = false;
-        // // }else{
-        // //     button.disabled = true;
-        // // }
-        // // if()
-
-    }
-
 
     return (
+
         <div className="disclaimer_popup">
+            {console.log(complaintStep)}
             <div className="disclaimer_popup_inner">
                 <p>I Loor Jacobson</p>
                 <input type="checkbox" name='agree' className='me-2 agree' id="agree" onChange={() => {

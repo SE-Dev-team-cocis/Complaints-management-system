@@ -11,9 +11,7 @@ import Dashboard from './Dashboard';
 
 import DisclaimerPopup from "./complaintForm/DisclaimerPopup";
 import PreviewPopup from "./complaintForm/PreviewPopup";
-import ProgressBar from './complaintForm/ProgressBar';
 
-import StudentDetails from './complaintForm/StudentDetails';
 import CourseDetails from './complaintForm/CourseDetails';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -108,19 +106,18 @@ function AddComplaint1() {
                                 <Step handleChange={handleChange} name={values.name} email={values.email} telephone={values.telephone} registrationNumber={values.regNo}
                                     studentNumber={values.studentNo} course={values.course} nature={values.nature} semester={values.semester}
                                     yearOfSitting={values.yearOfSitting} lecturer={values.courseLecturer} coursecode={values.courseCode} courseunit={values.courseUnit} />
+                                {
+                                    // complaintStep === 3 ? (<CourseDetails handleChange={handleChange} /> && <DisclaimerPopup />) : ""
+                                    complaintStep === 3 ? (<DisclaimerPopup />) : ""
+                                }
+                                {
+                                    complaintStep === 4 ? (<CourseDetails handleChange={handleChange} /> && <PreviewPopup
+                                        name={values.name} email={values.email} telephone={values.telephone} registrationNumber={values.regNo}
+                                        studentNumber={values.studentNo} course={values.course} nature={values.nature} semester={values.semester}
+                                        yearOfSitting={values.yearOfSitting} lecturer={values.courseLecturer} coursecode={values.courseCode} courseunit={values.courseUnit}
+                                    />) : ""
 
-
-                                {/* {complaintStep === 1
-                                    ? <StudentDetails /> :
-                                    complaintStep === 2
-                                        ? <CourseDetails handleChange={handleChange} /> :
-                                        complaintStep === 3
-                                            ? (<CourseDetails handleChange={handleChange} /> && <DisclaimerPopup />) :
-                                            complaintStep === 4 ? (<CourseDetails handleChange={handleChange} /> && <PreviewPopup
-                                                name={values.name} email={values.email} telephone={values.telephone} registrationNumber={values.regNo}
-                                                studentNumber={values.studentNo} course={values.course} nature={values.nature} semester={values.semester}
-                                                yearOfSitting={values.yearOfSitting} lecturer={values.courseLecturer} coursecode={values.courseCode} courseunit={values.courseUnit}
-                                            />) : ""} */}
+                                }
                             </Form>
                         )
                     }
